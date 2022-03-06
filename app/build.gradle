@@ -56,6 +56,13 @@ dependencies {
     androidTestImplementation libs.tests.runner
     androidTestImplementation libs.tests.espressocore
     implementation fileTree(dir: libs.tests.filetreedir, include: libs.tests.filetreeinclude)
+        // Mockito
+    testImplementation libs.tests.mockitocore
+    testImplementation libs.tests.mockitoinline
+    testImplementation (libs.tests.mockitokotlin) {
+        exclude group: 'org.jetbrains.kotlin'
+        exclude group: 'org.mockito'
+    }
         // Robolectric
     testImplementation libs.tests.robolectric
     testImplementation libs.tests.robolectriccore
