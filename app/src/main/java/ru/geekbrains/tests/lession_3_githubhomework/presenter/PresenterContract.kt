@@ -1,3 +1,8 @@
 package ru.geekbrains.tests.lession_3_githubhomework.presenter
 
-internal interface PresenterContract {}
+import ru.geekbrains.tests.lession_3_githubhomework.view.ViewContract
+
+internal interface PresenterContract {
+    fun onAttach(viewContract: ViewContract)
+    fun onDetach()
+}
