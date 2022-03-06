@@ -26,14 +26,14 @@ class DetailsPresenterTests {
         detailsPresenter.onAttach(viewContract)
     }
 
-    @Test
+    @Test // Проверка метода onDetach()
     fun onDetach() {
         detailsPresenter.onDetach()
         detailsPresenter.onIncrement()
         verify(viewContract, times(0)).setCount(1)
     }
 
-    @Test
+    @Test // Проверка метода onAttach()
     fun onAttach() {
         detailsPresenter.onDetach()
         detailsPresenter.onAttach(viewContract)
@@ -41,19 +41,19 @@ class DetailsPresenterTests {
         verify(viewContract, times(1)).setCount(1)
     }
 
-    @Test
+    @Test // Проверка метода onIncrement()
     fun onIncrement_Test() {
         detailsPresenter.onIncrement()
         verify(viewContract, times(1)).setCount(1)
     }
 
-    @Test
+    @Test // Проверка метода onDecrement()
     fun onDecrement_Test() {
         detailsPresenter.onDecrement()
         verify(viewContract, times(1)).setCount(-1)
     }
 
-    @Test
+    @Test // Проверка метода setCounter()
     fun setCounter_Test() {
         detailsPresenter.setCounter(1)
         detailsPresenter.onIncrement()
