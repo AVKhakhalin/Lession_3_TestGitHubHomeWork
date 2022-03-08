@@ -9,4 +9,5 @@
     <string name="decrement_text">-</string>
     <string name="increment_text">+</string>
     <string name="to_details">to details</string>
+    <string name="totalCountTextView_tools_text">Number of results: 100</string>
 </resources>

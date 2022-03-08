@@ -34,6 +34,13 @@ android {
         jvmTarget = '1.8'
     }
 
+    // Добавили разрешение для доступа к ресурсам, активити во время тестирования
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
     // Добавили разрешение на использование Binding
     buildFeatures {
         viewBinding true
