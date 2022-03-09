@@ -34,7 +34,7 @@ android {
         jvmTarget = '1.8'
     }
 
-    // Добавили разрешение для доступа к ресурсам, активити во время тестирования
+    // Добавили разрешение для доступа к ресурсам, активити во время тестирования Robolectric
     testOptions {
         unitTests {
             includeAndroidResources = true

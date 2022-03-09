@@ -13,19 +13,16 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.nhaarman.mockito_kotlin.times
-import com.nhaarman.mockito_kotlin.verify
-import junit.framework.Assert.*
+import junit.framework.Assert.assertEquals
+import junit.framework.Assert.assertNotNull
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.annotation.Config
-import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
 import org.mockito.MockitoAnnotations
-import org.robolectric.shadows.ShadowToast
-import ru.geekbrains.tests.lession_3_githubhomework.view.details.DetailsActivity
+import org.robolectric.annotation.Config
 import ru.geekbrains.tests.lession_3_githubhomework.view.details.DetailsActivity.Companion.TOTAL_COUNT_EXTRA
+import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
 
 
 @RunWith(AndroidJUnit4::class)
@@ -193,7 +190,7 @@ class MainActivityTests {
     }
     //endregion
 
-    @After
+    @After // Завершение сценария
     fun close() {
         // Сценарий обязательно должен закончиться
         // иначе другие тесты будут происходить на незачищенных данных
