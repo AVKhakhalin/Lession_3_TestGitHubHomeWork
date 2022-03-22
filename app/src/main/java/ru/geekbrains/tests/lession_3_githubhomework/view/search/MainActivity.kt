@@ -6,10 +6,6 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_details.*
-import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import ru.geekbrains.tests.lession_3_githubhomework.BuildConfig
 import ru.geekbrains.tests.lession_3_githubhomework.R
 import ru.geekbrains.tests.lession_3_githubhomework.model.SearchResult
@@ -20,6 +16,9 @@ import ru.geekbrains.tests.lession_3_githubhomework.repository.FakeGitHubReposit
 import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubApi
 import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubRepository
 import ru.geekbrains.tests.lession_3_githubhomework.view.details.DetailsActivity
+import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
 class MainActivity: AppCompatActivity(), ViewSearchContract {
@@ -87,14 +86,15 @@ class MainActivity: AppCompatActivity(), ViewSearchContract {
         totalCount: Int
     ) {
         with(totalCountTextView) {
-            visibility = View.VISIBLE
+            visibility = android.view.View.VISIBLE
             text =
-                String.format(Locale.getDefault(), getString(R.string.results_count), totalCount)
+                kotlin.String.format(java.util.Locale.getDefault(), getString(R.string.results_count), totalCount)
         }
 
         this.totalCount = totalCount
         adapter.updateResults(searchResults)
     }
+
 
     override fun displayError() {
         Toast.makeText(this, getString(R.string.undefined_error), Toast.LENGTH_SHORT).show()
