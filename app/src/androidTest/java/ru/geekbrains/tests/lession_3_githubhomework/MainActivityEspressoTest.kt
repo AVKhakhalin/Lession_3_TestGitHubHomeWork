@@ -7,12 +7,16 @@ import android.widget.TextView
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import junit.framework.TestCase
 import org.hamcrest.Matcher
@@ -27,7 +31,8 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-@RunWith(AndroidJUnit4ClassRunner::class)
+//@RunWith(AndroidJUnit4ClassRunner::class)
+@RunWith(AndroidJUnit4::class)
 class MainActivityEspressoTest {
 
     /** Задание переменных */ //region
@@ -52,7 +57,7 @@ class MainActivityEspressoTest {
     }
 
     @Test // Проверка наличия элемента с id "searchEditText"
-    fun activity_EditTextNotNull() {
+    fun activityEditText_NotNull() {
         scenario.onActivity {
             val searchEditText: EditText = it.findViewById<EditText>(R.id.searchEditText)
             TestCase.assertNotNull(searchEditText)
@@ -60,7 +65,7 @@ class MainActivityEspressoTest {
     }
 
     @Test // Проверка наличия элемента с id "toDetailsActivityButton"
-    fun activity_ToDetailsActivityButtonNotNull() {
+    fun activityToDetailsActivityButton_NotNull() {
         scenario.onActivity {
             val toDetailsActivityButton: Button =
                 it.findViewById<Button>(R.id.toDetailsActivityButton)
@@ -69,7 +74,7 @@ class MainActivityEspressoTest {
     }
 
     @Test // Проверка наличия элемента с id "totalCountTextView"
-    fun activity_TotalCountTextViewNotNull() {
+    fun activityTotalCountTextView_NotNull() {
         scenario.onActivity {
             val totalCountTextView: TextView =
                 it.findViewById<TextView>(R.id.totalCountTextView)
@@ -78,7 +83,7 @@ class MainActivityEspressoTest {
     }
 
     @Test // Проверка наличия элемента с id "recyclerView"
-    fun activity_RecyclerViewNotNull() {
+    fun activityRecyclerView_NotNull() {
         scenario.onActivity {
             val recyclerView: RecyclerView =
                 it.findViewById<RecyclerView>(R.id.recyclerView)
@@ -103,31 +108,52 @@ class MainActivityEspressoTest {
     }
 
     @Test // Проверка частичного отображения элемента с id "searchEditText"
-    fun activity_IsEditTextDisplayed() {
+    fun activityIsEditText_Displayed() {
         onView(withId(R.id.searchEditText)).check(matches(isDisplayed()))
     }
 
     @Test // Проверка полного отображения элемента с id "searchEditText"
-    fun activity_IsEditTextCompletelyDisplayed() {
+    fun activityIsEditText_CompletelyDisplayed() {
         onView(withId(R.id.searchEditText)).check(matches(isCompletelyDisplayed()))
     }
 
+    // Проверка свойства видимости элементов с id "progressBar", "searchEditText",
+    // "toDetailsActivityButton", "totalCountTextView", "recyclerView"
+    @Test
+    fun activityButtons_AreEffectiveVisible() {
+        Espresso.onView(withId(R.id.progressBar))
+            .check(ViewAssertions.matches(ViewMatchers
+                .withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
+        Espresso.onView(withId(R.id.searchEditText))
+            .check(ViewAssertions.matches(ViewMatchers
+                .withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
+        Espresso.onView(withId(R.id.toDetailsActivityButton))
+            .check(ViewAssertions.matches(ViewMatchers
+                .withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
+        Espresso.onView(withId(R.id.totalCountTextView))
+            .check(ViewAssertions.matches(ViewMatchers
+                .withEffectiveVisibility(ViewMatchers.Visibility.INVISIBLE)))
+        Espresso.onView(withId(R.id.recyclerView))
+            .check(ViewAssertions.matches(ViewMatchers
+                .withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
+    }
+
     @Test // Проверка отображения корректного текста на элементе с id "toDetailsActivityButton"
-    fun activity_EditTextIsCorrectText() {
+    fun activityEditText_IsCorrectText() {
         onView(withId(R.id.searchEditText)).check(matches(withText("")))
     }
 
     // Проверка отображения корректного текста
     // с подсказкой на элементе с id "toDetailsActivityButton"
     @Test
-    fun activity_EditTextIsCorrectHintText() {
+    fun activityEditText_IsCorrectHintText() {
         onView(withId(R.id.searchEditText))
             .check(matches(withHint("Enter keyword e.g. android")))
     }
 
 
     @Test // Проверка отображения корректного текста на элементе с id "toDetailsActivityButton"
-    fun activity_ButtonIsCorrectText() {
+    fun activityButton_IsCorrectText() {
         onView(withId(R.id.toDetailsActivityButton)).check(matches(withText("to details")))
     }
 
