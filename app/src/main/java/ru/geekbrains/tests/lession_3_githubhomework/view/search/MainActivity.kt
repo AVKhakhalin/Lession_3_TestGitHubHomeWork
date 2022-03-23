@@ -31,6 +31,8 @@ class MainActivity: AppCompatActivity(), ViewSearchContract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUI()
+
+        Toast.makeText(this, "MAIN", Toast.LENGTH_SHORT).show()
     }
 
     private fun setUI() {
