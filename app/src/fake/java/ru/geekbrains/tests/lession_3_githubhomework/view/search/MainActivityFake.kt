@@ -9,15 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.geekbrains.tests.lession_3_githubhomework.BuildConfig
 import ru.geekbrains.tests.lession_3_githubhomework.R
 import ru.geekbrains.tests.lession_3_githubhomework.model.SearchResult
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.RepositoryContract
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.search.PresenterSearchContract
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.search.SearchPresenter
 import ru.geekbrains.tests.lession_3_githubhomework.repository.FakeGitHubRepository
-import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubApi
-import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubRepository
 import ru.geekbrains.tests.lession_3_githubhomework.view.details.DetailsActivity
 
 class MainActivityFake {
@@ -31,8 +28,6 @@ class MainActivityFake {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
             setUI()
-
-            Toast.makeText(this, "FAKE", Toast.LENGTH_SHORT).show()
         }
 
         private fun setUI() {

@@ -31,8 +31,6 @@ class MainActivityReal {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
             setUI()
-
-            Toast.makeText(this, "REAL", Toast.LENGTH_SHORT).show()
         }
 
         private fun setUI() {

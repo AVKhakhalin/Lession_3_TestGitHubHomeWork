@@ -24,7 +24,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
+import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivityFake
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -33,15 +33,15 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
  */
 //@RunWith(AndroidJUnit4ClassRunner::class)
 @RunWith(AndroidJUnit4::class)
-class MainActivityEspressoTest {
+class MainActivityFakeEspressoTest {
 
     /** Задание переменных */ //region
-    private lateinit var scenario: ActivityScenario<MainActivity>
+    private lateinit var scenario: ActivityScenario<MainActivityFake.MainActivity>
     //endregion
 
     @Before // Установка действия до начала выполнения всех тестов
     fun setup() {
-        scenario = ActivityScenario.launch(MainActivity::class.java)
+        scenario = ActivityScenario.launch(MainActivityFake.MainActivity::class.java)
     }
 
     @Test // Проверка на существование активити
@@ -97,14 +97,8 @@ class MainActivityEspressoTest {
         onView(withId(R.id.searchEditText)).perform(replaceText("algol"),
             closeSoftKeyboard())
         onView(withId(R.id.searchEditText)).perform(pressImeActionButton())
-        if (BuildConfig.TYPE == MainActivity.FAKE) {
-            onView(withId(R.id.totalCountTextView)).
-                check(matches(withText("Number of results: 42")))
-        } else {
-            onView(isRoot()).perform(delay(2000))
-            onView(withId(R.id.totalCountTextView)).
-                check(matches(withText("Number of results: 2283")))
-        }
+        onView(withId(R.id.totalCountTextView)).
+            check(matches(withText("Number of results: 42")))
     }
 
     @Test // Проверка частичного отображения элемента с id "searchEditText"
