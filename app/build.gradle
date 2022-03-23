@@ -8,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "ru.geekbrains.popular.libraries.less_1_homework"
         minSdkVersion 23
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -68,16 +68,17 @@ dependencies {
     //Kotlin
     implementation libs.kotlin.ktx
     implementation libs.kotlin.jdk7
-    implementation libs.kotlin.coroutinescore
-    implementation libs.kotlin.coroutinesandroid
+//    implementation libs.kotlin.coroutinescore
+//    implementation libs.kotlin.coroutinesandroid
     //Design
     implementation libs.design.material
     implementation libs.design.constrlayout
     // Test
     testImplementation libs.tests.junit
-    androidTestImplementation libs.tests.runner
+        // Core
+    androidTestImplementation libs.tests.ext
     androidTestImplementation libs.tests.espressocore
-    implementation fileTree(dir: libs.tests.filetreedir, include: libs.tests.filetreeinclude)
+//    implementation fileTree(dir: libs.tests.filetreedir, include: libs.tests.filetreeinclude)
         // Mockito
     testImplementation libs.tests.mockitocore
     testImplementation libs.tests.mockitoinline
@@ -89,18 +90,17 @@ dependencies {
     testImplementation libs.tests.robolectric
     testImplementation libs.tests.robolectriccore
     testImplementation libs.tests.robolectricrunner
-    testImplementation libs.tests.robolectricjunit
     testImplementation libs.tests.robolectrictruth
     testImplementation libs.tests.robolectricespressocore
     testImplementation libs.tests.robolectricespressointents
     // Lifecycle
-    implementation libs.lifecycle.extensions
+//    implementation libs.lifecycle.extensions
     // LiveData
-    implementation libs.lifecycle.ktx
+//    implementation libs.lifecycle.ktx
     // Lifecycles only (without ViewModel or LiveData)
-    implementation libs.lifecycle.runtimektx
-    implementation libs.lifecycle.process
-    implementation libs.lifecycle.java8
+//    implementation libs.lifecycle.runtimektx
+//    implementation libs.lifecycle.process
+//    implementation libs.lifecycle.java8
 /*    // Moxy
     implementation libs.moxy.community
     kapt libs.moxy.compiler
@@ -108,30 +108,30 @@ dependencies {
     implementation libs.moxy.androidx */
 /*    // Cicerony
     implementation libs.cicerony.runtime */
-    // RxJava
-    implementation libs.rxJava.android
-    implementation libs.rxJava.reactive
-    // Glide
-    implementation libs.glide.runtime
-    kapt libs.glide.compiler
-    // Picasso
-    implementation libs.picasso.runtime
+//    // RxJava
+//    implementation libs.rxJava.android
+//    implementation libs.rxJava.reactive
+//    // Glide
+//    implementation libs.glide.runtime
+//    kapt libs.glide.compiler
+//    // Picasso
+//    implementation libs.picasso.runtime
 /*    // OkHTTP
     implementation libs.okHTTP.runtime */
     // Retrofit
     implementation libs.retrofit.runtime
     implementation libs.retrofit.gson
-    implementation libs.retrofit.rxJava2
-//    implementation libs.retrofit.rxJava3 // одновременно с rxJava2 не включать
-    implementation libs.retrofit.interceptor
+//    implementation libs.retrofit.rxJava2
+////    implementation libs.retrofit.rxJava3 // одновременно с rxJava2 не включать
+//    implementation libs.retrofit.interceptor
     // Room
-    implementation libs.room.runtime
-    kapt libs.room.compiler
-    kapt libs.room.m1Support
-    implementation libs.room.rxJava3
-    implementation libs.room.ktx
+//    implementation libs.room.runtime
+//    kapt libs.room.compiler
+//    kapt libs.room.m1Support
+//    implementation libs.room.rxJava3
+//    implementation libs.room.ktx
     // Coroutines
-    implementation libs.coroutines.android
+//    implementation libs.coroutines.android
 /*    // Dagger
     implementation libs.dagger.daggger
     implementation libs.dagger.runtime
@@ -150,6 +150,6 @@ dependencies {
     // For Retrofit 2 coroutines
     implementation libs.koin.retrofitcoroutines
     // Koin for Tests
-    testImplementation libs.koin.testsandroidx
+//    testImplementation libs.koin.testsandroidx
     testImplementation libs.koin.testsio
 }

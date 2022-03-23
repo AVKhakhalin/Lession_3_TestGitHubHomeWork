@@ -5,15 +5,14 @@ def kotlinCoroutinescoreVersion = "1.5.1"
 def kotlinCoroutineandroidVersion = "1.5.0"
 def designMaterialVersion = "1.4.0"
 def designConstrlayoutVersion = "2.1.1"
-def testJunitVersion = "4.12"
-def testRunnerVersion = "1.2.0"
-def testEspressocoreVersion = "3.2.0"
+def testJunitVersion = "4.13.2"
+def testExtVersion = "1.1.2"
+def testEspressocoreVersion = "3.3.0"
 def testMockitoCoreVersion = "3.3.3"
 def testMockitoInlineVersion = "2.8.9"
 def testMockitoKotlinVersion = "1.5.0"
 def testRobolectricVersion = "4.5.1"
 def testRobolectricCoreVersion = "1.4.0"
-def testRobolectricJunitVersion = "1.1.2"
 def testRobolectricEspressoVersion = "3.3.0"
 def roomVersion = "2.4.0"
 def roomJDBCVersion = "3.34.0"
@@ -60,8 +59,9 @@ ext {
     // Test
     tests = [:]
     libs.tests = tests
+        // Core
     tests.junit = "junit:junit:$testJunitVersion"
-    tests.runner = "androidx.test:runner:$testRunnerVersion"
+    tests.ext = "androidx.test.ext:junit:$testExtVersion"
     tests.espressocore = "androidx.test.espresso:espresso-core:$testEspressocoreVersion"
     tests.filetreedir = "'libs'"
     tests.filetreeinclude = "'*.jar'"
@@ -73,7 +73,6 @@ ext {
     tests.robolectric = "org.robolectric:robolectric:$testRobolectricVersion"
     tests.robolectriccore = "androidx.test:core:$testRobolectricCoreVersion"
     tests.robolectricrunner = "androidx.test:runner:$testRobolectricCoreVersion"
-    tests.robolectricjunit = "androidx.test.ext:junit:$testRobolectricJunitVersion"
     tests.robolectrictruth = "androidx.test.ext:truth:$testRobolectricCoreVersion"
     tests.robolectricespressocore =
             "androidx.test.espresso:espresso-core:$testRobolectricEspressoVersion"
@@ -109,7 +108,7 @@ ext {
     // Koin for Retrofit 2 coroutines (needs for CoroutineCallAdapterFactory())
     koin.retrofitcoroutines = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$koinRetrofitcoroutinesVersion"
     // Koin for Tests
-    koin.testsandroidx = "androidx.test:core:$koinTestsandroidxVersion"
+//    koin.testsandroidx = "androidx.test:core:$koinTestsandroidxVersion"
     koin.testsio = "io.insert-koin:koin-test:$koinVersion"
     // Coroutines
     coroutines = [:]
