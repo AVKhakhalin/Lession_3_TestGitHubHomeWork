@@ -7,24 +7,18 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import ru.geekbrains.tests.lession_3_githubhomework.BuildConfig
+import org.koin.java.KoinJavaComponent.getKoin
 import ru.geekbrains.tests.lession_3_githubhomework.R
 import ru.geekbrains.tests.lession_3_githubhomework.model.SearchResult
-import ru.geekbrains.tests.lession_3_githubhomework.presenter.RepositoryContract
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.search.PresenterSearchContract
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.search.SearchPresenter
-import ru.geekbrains.tests.lession_3_githubhomework.repository.FakeGitHubRepository
-import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubApi
-import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubRepository
 import ru.geekbrains.tests.lession_3_githubhomework.view.details.DetailsActivity
 
 class MainActivityReal {
     class MainActivity: AppCompatActivity(), ViewSearchContract {
 
         private val adapter = SearchResultAdapter()
-        private val presenter: PresenterSearchContract = SearchPresenter(createRepository())
+        private val presenter: PresenterSearchContract = SearchPresenter(getKoin().get())
         private var totalCount: Int = 0
 
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,17 +60,6 @@ class MainActivityReal {
                 }
                 false
             })
-        }
-
-        private fun createRepository(): RepositoryContract {
-            return GitHubRepository(createRetrofit().create(GitHubApi::class.java))
-        }
-
-        private fun createRetrofit(): Retrofit {
-            return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
         }
 
         override fun displaySearchResults(

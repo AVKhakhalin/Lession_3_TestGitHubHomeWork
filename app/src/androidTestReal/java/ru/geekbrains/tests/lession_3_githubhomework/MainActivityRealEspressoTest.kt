@@ -99,7 +99,7 @@ class MainActivityRealEspressoTest {
         onView(withId(R.id.searchEditText)).perform(pressImeActionButton())
         onView(isRoot()).perform(delay(2000))
         onView(withId(R.id.totalCountTextView)).
-            check(matches(withText("Number of results: 2951")))
+            check(matches(withText("Number of results: 2952")))
     }
 
     @Test // Проверка частичного отображения элемента с id "searchEditText"
