@@ -9,7 +9,6 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import junit.framework.TestCase
 import org.junit.After
 import org.junit.Before

@@ -1,6 +1,5 @@
 package ru.geekbrains.tests.lession_3_githubhomework
 
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -9,17 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import junit.framework.TestCase
-import org.hamcrest.Matcher
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -149,17 +144,6 @@ class MainActivityFakeEspressoTest {
     @Test // Проверка отображения корректного текста на элементе с id "toDetailsActivityButton"
     fun activityButton_IsCorrectText() {
         onView(withId(R.id.toDetailsActivityButton)).check(matches(withText("to details")))
-    }
-
-    // Функция для реализации ожидания
-    private fun delay(waitTime: Long): ViewAction? {
-        return object: ViewAction {
-            override fun getConstraints(): Matcher<View> = isRoot()
-            override fun getDescription(): String = "Ожидание в течение $waitTime секунд"
-            override fun perform(uiController: UiController, v: View?) {
-                uiController.loopMainThreadForAtLeast(waitTime)
-            }
-        }
     }
 
     @After // Установка действия после завершения выполнения всех тестов

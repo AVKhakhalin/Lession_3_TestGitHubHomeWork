@@ -5,7 +5,6 @@ import ru.geekbrains.tests.lession_3_githubhomework.model.SearchResponse
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.RepositoryContract
 import ru.geekbrains.tests.lession_3_githubhomework.repository.RepositoryCallback
 import ru.geekbrains.tests.lession_3_githubhomework.view.ViewContract
-import ru.geekbrains.tests.lession_3_githubhomework.view.details.ViewDetailsContract
 import ru.geekbrains.tests.lession_3_githubhomework.view.search.ViewSearchContract
 
 /**
