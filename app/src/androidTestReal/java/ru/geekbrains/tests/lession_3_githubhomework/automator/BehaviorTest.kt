@@ -62,7 +62,16 @@ class BehaviorTest {
         //Отправляем запрос через UiAutomator
             // Пишем заглавные буквы, потому что у кнопки по-умолчанию
             // стоит атрибут android:textAllCaps="true"
-        uiDevice.findObject(UiSelector().textMatches("ПОИСК РЕПОЗИТОРИЕВ")).click()
+//        uiDevice.findObject(UiSelector().textMatches("ПОИСК РЕПОЗИТОРИЕВ")).click()
+            //Находим кнопку с запуском поиска информации
+        val toDetails: UiObject2 = uiDevice.findObject(
+            By.res(
+                packageName,
+                "toSearchActivityButton"
+            )
+        )
+            //Кликаем по кнопке поиска информации
+        toDetails.click()
 
         //Ожидаем конкретного события: появления текстового поля totalCountTextView.
         //Это будет означать, что сервер вернул ответ с какими-то данными, то есть запрос отработал.
