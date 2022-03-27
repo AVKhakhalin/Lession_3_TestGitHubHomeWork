@@ -2,6 +2,8 @@ package ru.geekbrains.tests.lession_3_githubhomework.automator
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
+import android.widget.Toast
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SdkSuppress
@@ -34,8 +36,10 @@ class BehaviorTest {
 
         //Запускаем наше приложение
         val intent = context.packageManager.getLaunchIntentForPackage(packageName)
-        //Мы уже проверяли Интент на null в предыдущем тесте, поэтому допускаем, что Интент у нас не null
-        intent!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)//Чистим бэкстек от запущенных ранее Активити
+        //Мы уже проверяли Интент на null в предыдущем тесте,
+        // поэтому допускаем, что Интент у нас не null
+        intent!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)  // Чистим бэкстек
+                                                            // от запущенных ранее Активити
         context.startActivity(intent)
 
         //Ждем, когда приложение откроется на смартфоне чтобы начать тестировать его элементы
@@ -52,8 +56,7 @@ class BehaviorTest {
         Assert.assertNotNull(editText)
     }
 
-    //Убеждаемся, что поиск работает как ожидается
-    @Test
+    @Test //Убеждаемся, что поиск работает как ожидается
     fun test_SearchIsPositive() {
         //Через uiDevice находим editText
         val editText = uiDevice.findObject(By.res(packageName, "searchEditText"))
@@ -81,12 +84,12 @@ class BehaviorTest {
                 TIMEOUT
             )
         //Убеждаемся, что сервер вернул корректный результат. Обратите внимание, что количество
-        //результатов может варьироваться во времени, потому что количество репозиториев постоянно меняется.
+        //результатов может варьироваться во времени,
+        // потому что количество репозиториев постоянно меняется.
         Assert.assertEquals(changedText.text.toString(), "Number of results: 701")
     }
 
-    //Убеждаемся, что DetailsScreen открывается
-    @Test
+    @Test //Убеждаемся, что DetailsScreen открывается
     fun test_OpenDetailsScreen() {
         //Находим кнопку
         val toDetails: UiObject2 = uiDevice.findObject(
@@ -111,6 +114,54 @@ class BehaviorTest {
         //Чтобы проверить отображение определенного количества репозиториев,
         //вам в одном и том же методе нужно отправить запрос на сервер и открыть DetailsScreen.
         Assert.assertEquals(changedText.text, "Number of results: 0")
+    }
+
+    // Проверяем отображения одинакового количества репозиториев
+    // в MainActivity и в DetailsActivity
+    @Test
+    fun test_SimilarResultMainActivityAndDetailsActivity() {
+        val editText = uiDevice.findObject(By.res(packageName, "searchEditText"))
+        //Устанавливаем значение
+        editText.text = "avkhakhalin"
+        //Отправляем запрос через UiAutomator
+        //Находим кнопку с запуском поиска информации
+        var toDetails: UiObject2 = uiDevice.findObject(
+            By.res(
+                packageName,
+                "toSearchActivityButton"
+            )
+        )
+        //Кликаем по кнопке поиска информации
+        toDetails.click()
+        // Сохраняем информацию о количестве запрошенных репозиториев
+        val mainActivityChangedText =
+            uiDevice.wait(
+                Until.findObject(By.res(packageName, "totalCountTextView")),
+                TIMEOUT
+            )
+        val mainActivityResult: String = mainActivityChangedText.text
+
+        //Находим кнопку для перехода на DetailsActivity
+        toDetails = uiDevice.findObject(
+            By.res(
+                packageName,
+                "toDetailsActivityButton"
+            )
+        )
+        //Кликаем по ней
+        toDetails.click()
+        // Получаем информацию с текстового поля DetailsActivity
+        val detailsActivityChangedText =
+            uiDevice.wait(
+                Until.findObject(By.res(packageName, "totalCountTextView")),
+                TIMEOUT
+            )
+        val detailsActivityResult: String = detailsActivityChangedText.text
+        // Получение результата сравнения двух строк
+        val result: Long = mainActivityResult.indexOf(detailsActivityResult).toLong()
+
+        // Оцениваем полученный результат сравнения двух строк
+        Assert.assertTrue(result == 0L)
     }
 
     companion object {
