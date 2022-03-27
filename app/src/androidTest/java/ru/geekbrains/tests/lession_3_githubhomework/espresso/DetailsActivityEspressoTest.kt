@@ -1,4 +1,4 @@
-package ru.geekbrains.tests.lession_3_githubhomework
+package ru.geekbrains.tests.lession_3_githubhomework.espresso
 
 import android.widget.TextView
 import androidx.lifecycle.Lifecycle
@@ -14,6 +14,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import ru.geekbrains.tests.lession_3_githubhomework.R
 import ru.geekbrains.tests.lession_3_githubhomework.view.details.DetailsActivity
 
 //@RunWith(AndroidJUnit4ClassRunner::class)

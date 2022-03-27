@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.RepositoryContract
 import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubApi
 import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubRepository
-import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivityReal.MainActivity.Companion.BASE_URL
+import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity.MainActivity.Companion.BASE_URL
 
 val application = module {
     single<RepositoryContract> {

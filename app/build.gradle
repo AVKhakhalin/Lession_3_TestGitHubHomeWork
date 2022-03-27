@@ -93,6 +93,8 @@ dependencies {
     testImplementation libs.tests.robolectrictruth
     testImplementation libs.tests.robolectricespressocore
     testImplementation libs.tests.robolectricespressointents
+        // UI Automator
+    androidTestImplementation libs.tests.uiautomator
     // Lifecycle
 //    implementation libs.lifecycle.extensions
     // LiveData

@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".view.search.MainActivityFake$MainActivity"
+            android:name=".view.search.MainActivity$MainActivity"
             android:exported="true"> <!--Нужно для устранения ошибки: Manifest merger failed : Apps targeting Android 12 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
