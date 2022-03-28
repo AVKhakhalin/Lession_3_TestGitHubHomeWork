@@ -2,8 +2,6 @@ package ru.geekbrains.tests.lession_3_githubhomework.automator
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
-import android.widget.Toast
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SdkSuppress
@@ -17,7 +15,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 @SdkSuppress(minSdkVersion = 18)
 class BehaviorTest {
-
+    /** Задание переменных */ //region
     //Класс UiDevice предоставляет доступ к вашему устройству.
     //Именно через UiDevice вы можете управлять устройством, открывать приложения
     //и находить нужные элементы на экране
@@ -28,6 +26,7 @@ class BehaviorTest {
 
     //Путь к классам нашего приложения, которые мы будем тестировать
     private val packageName = context.packageName
+    //endregion
 
     @Before
     fun setup() {
