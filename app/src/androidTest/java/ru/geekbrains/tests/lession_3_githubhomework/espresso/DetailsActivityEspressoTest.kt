@@ -1,5 +1,8 @@
 package ru.geekbrains.tests.lession_3_githubhomework.espresso
 
+import RESULT_MINUS_ONE_TEXT
+import RESULT_ONE_REPOSITORY_TEXT
+import RESULT_ZERO_REPOSITORY_TEXT
 import android.widget.TextView
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
@@ -52,7 +55,7 @@ class DetailsActivityEspressoTest {
 
     @Test // Проверка на наличие определённого текста в элементе с id "totalCountTextView"
     fun activityTextView_HasText() {
-        val assertion = ViewAssertions.matches(ViewMatchers.withText("Number of results: 0"))
+        val assertion = ViewAssertions.matches(ViewMatchers.withText(RESULT_ZERO_REPOSITORY_TEXT))
         Espresso.onView(withId(R.id.totalCountTextView)).check(assertion)
     }
 
@@ -89,7 +92,7 @@ class DetailsActivityEspressoTest {
     fun activityButtonIncrement_IsWorking() {
         Espresso.onView(withId(R.id.incrementButton)).perform(ViewActions.click())
         Espresso.onView(withId(R.id.totalCountTextView))
-            .check(ViewAssertions.matches(ViewMatchers.withText("Number of results: 1")))
+            .check(ViewAssertions.matches(ViewMatchers.withText(RESULT_ONE_REPOSITORY_TEXT)))
     }
 
     // Проверка результата нажатия на элемент с id "decrementButton"
@@ -98,7 +101,7 @@ class DetailsActivityEspressoTest {
     fun activityButtonDecrement_IsWorking() {
         Espresso.onView(withId(R.id.decrementButton)).perform(ViewActions.click())
         Espresso.onView(withId(R.id.totalCountTextView))
-            .check(ViewAssertions.matches(ViewMatchers.withText("Number of results: -1")))
+            .check(ViewAssertions.matches(ViewMatchers.withText(RESULT_MINUS_ONE_TEXT)))
     }
 
     @After // Установка действия после завершения выполнения всех тестов

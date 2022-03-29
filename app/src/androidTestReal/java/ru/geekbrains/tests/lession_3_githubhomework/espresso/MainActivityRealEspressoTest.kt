@@ -1,6 +1,12 @@
 package ru.geekbrains.tests.lession_3_githubhomework.espresso
 
-import android.view.View
+import DELAY_TIME
+import EMPTY_TEXT
+import HINT_TEXT
+import MIN_SDK_VALUE
+import RESULT_SAMPLE_REPOSITORY_TEXT
+import SAMPLE_REPOSITORY_NAME_TEXT
+import TO_DETAILS_TEXT
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -8,9 +14,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -18,8 +21,8 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SdkSuppress
+import delayTime
 import junit.framework.TestCase
-import org.hamcrest.Matcher
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -34,9 +37,8 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
  */
 //@RunWith(AndroidJUnit4ClassRunner::class)
 @RunWith(AndroidJUnit4::class)
-@SdkSuppress(minSdkVersion = 18)
+@SdkSuppress(minSdkVersion = MIN_SDK_VALUE)
 class MainActivityRealEspressoTest {
-
     /** Задание переменных */ //region
     private lateinit var scenario: ActivityScenario<MainActivity.MainActivity>
     //endregion
@@ -95,23 +97,24 @@ class MainActivityRealEspressoTest {
 
     @Test // Проверка корректности работы поискового запроса
     fun activitySearch_IsSearchWorking() {
-        onView(withId(R.id.searchEditText)).perform(click())
-        onView(withId(R.id.searchEditText)).perform(replaceText("algol"),
-            closeSoftKeyboard())
-        onView(withId(R.id.searchEditText)).perform(pressImeActionButton())
-        onView(isRoot()).perform(delay(2000))
-        onView(withId(R.id.totalCountTextView)).
-            check(matches(withText("Number of results: 2952")))
+        Espresso.onView(withId(R.id.searchEditText)).perform(click())
+        Espresso.onView(withId(R.id.searchEditText))
+            .perform(replaceText(SAMPLE_REPOSITORY_NAME_TEXT))
+        Espresso.onView(withId(R.id.toSearchActivityButton))
+            .perform(click())
+        Espresso.onView(isRoot()).perform(delayTime(DELAY_TIME))
+        Espresso.onView(withId(R.id.totalCountTextView)).
+            check(matches(withText(RESULT_SAMPLE_REPOSITORY_TEXT)))
     }
 
     @Test // Проверка частичного отображения элемента с id "searchEditText"
     fun activityIsEditText_Displayed() {
-        onView(withId(R.id.searchEditText)).check(matches(isDisplayed()))
+        Espresso.onView(withId(R.id.searchEditText)).check(matches(isDisplayed()))
     }
 
     @Test // Проверка полного отображения элемента с id "searchEditText"
     fun activityIsEditText_CompletelyDisplayed() {
-        onView(withId(R.id.searchEditText)).check(matches(isCompletelyDisplayed()))
+        Espresso.onView(withId(R.id.searchEditText)).check(matches(isCompletelyDisplayed()))
     }
 
     // Проверка свойства видимости элементов с id "progressBar", "searchEditText",
@@ -137,32 +140,22 @@ class MainActivityRealEspressoTest {
 
     @Test // Проверка отображения корректного текста на элементе с id "toDetailsActivityButton"
     fun activityEditText_IsCorrectText() {
-        onView(withId(R.id.searchEditText)).check(matches(withText("")))
+        Espresso.onView(withId(R.id.searchEditText)).check(matches(withText(EMPTY_TEXT)))
     }
 
     // Проверка отображения корректного текста
     // с подсказкой на элементе с id "toDetailsActivityButton"
     @Test
     fun activityEditText_IsCorrectHintText() {
-        onView(withId(R.id.searchEditText))
-            .check(matches(withHint("Enter keyword e.g. android")))
+        Espresso.onView(withId(R.id.searchEditText))
+            .check(matches(withHint(HINT_TEXT)))
     }
 
 
     @Test // Проверка отображения корректного текста на элементе с id "toDetailsActivityButton"
     fun activityButton_IsCorrectText() {
-        onView(withId(R.id.toDetailsActivityButton)).check(matches(withText("to details")))
-    }
-
-    // Функция для реализации ожидания
-    private fun delay(waitTime: Long): ViewAction? {
-        return object: ViewAction {
-            override fun getConstraints(): Matcher<View> = isRoot()
-            override fun getDescription(): String = "Ожидание в течение $waitTime секунд"
-            override fun perform(uiController: UiController, v: View?) {
-                uiController.loopMainThreadForAtLeast(waitTime)
-            }
-        }
+        Espresso.onView(withId(R.id.toDetailsActivityButton))
+            .check(matches(withText(TO_DETAILS_TEXT)))
     }
 
     @After // Установка действия после завершения выполнения всех тестов

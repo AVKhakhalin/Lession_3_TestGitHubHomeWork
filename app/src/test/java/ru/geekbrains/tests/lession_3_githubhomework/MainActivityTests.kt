@@ -1,5 +1,9 @@
 package ru.geekbrains.tests.lession_3_githubhomework
 
+import HINT_TEXT
+import TO_DETAILS_SMALL_TEXT
+import TO_DETAILS_TEXT
+import ZERO_INT_VALUE
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -28,9 +32,11 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [Build.VERSION_CODES.R])
 class MainActivityTests {
+    /** Задание переменных */ //region
     // Создание сценария для активити
     private lateinit var scenarioMainActivity: ActivityScenario<MainActivity.MainActivity>
     private lateinit var context: Context
+    //endregion
 
     @Before
     fun setup() {
@@ -87,14 +93,14 @@ class MainActivityTests {
     fun activityToDetailsActivityButton_HasText() {
         scenarioMainActivity.onActivity {
             val toDetailsActivityButton = it.findViewById<Button>(R.id.toDetailsActivityButton)
-            assertEquals("to details", toDetailsActivityButton.text)
+            assertEquals(TO_DETAILS_SMALL_TEXT, toDetailsActivityButton.text)
         }
     }
     @Test // Проверка наличия текста в поле hint на элементе "searchEditText"
     fun activitySearchEditText_HasText() {
         scenarioMainActivity.onActivity {
             val searchEditText = it.findViewById<EditText>(R.id.searchEditText)
-            assertEquals("Enter keyword e.g. android", searchEditText.hint)
+            assertEquals(HINT_TEXT, searchEditText.hint)
         }
     }
     //endregion
@@ -167,14 +173,14 @@ class MainActivityTests {
     @Test
     fun activityCreateIntent_NotNull() {
         scenarioMainActivity.onActivity {
-            val intent: Intent = it.intent.putExtra(TOTAL_COUNT_EXTRA, 0)
+            val intent: Intent = it.intent.putExtra(TOTAL_COUNT_EXTRA, ZERO_INT_VALUE)
             assertNotNull(intent)
         }
     }
     @Test
     fun activityCreateIntent_HasExtras() {
         scenarioMainActivity.onActivity {
-            val intent: Intent = it.intent.putExtra(TOTAL_COUNT_EXTRA, 0)
+            val intent: Intent = it.intent.putExtra(TOTAL_COUNT_EXTRA, ZERO_INT_VALUE)
             val bundle: Bundle? = intent.extras
             assertNotNull(bundle)
         }
@@ -185,7 +191,7 @@ class MainActivityTests {
             val count: Int = 4
             val intent: Intent = it.intent.putExtra(TOTAL_COUNT_EXTRA, count)
             val bundle: Bundle? = intent.extras
-            assertEquals(count, bundle?.getInt(TOTAL_COUNT_EXTRA, 0))
+            assertEquals(count, bundle?.getInt(TOTAL_COUNT_EXTRA, ZERO_INT_VALUE))
         }
     }
     //endregion
