@@ -35,6 +35,7 @@ internal const val TO_SEARCH_ACTIVITY_BUTTON_TEXT: String = "toSearchActivityBut
 internal const val DETAILED_QUERY_TEXT: String = "ДЕТАЛИЗАЦИЯ ЗАПРОСА"
 internal const val DECREMENT_BUTTON_TEXT: String = "decrementButton"
 internal const val INCREMENT_BUTTON_TEXT: String = "incrementButton"
+internal const val PLUS_TEXT: String = "+"
 internal const val ONE_TEXT: String = "1"
 internal const val ZERO_INT_VALUE: Int = 0
 internal const val ONE_INT_VALUE: Int = 1

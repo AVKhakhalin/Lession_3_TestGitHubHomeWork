@@ -104,6 +104,7 @@ dependencies {
     testImplementation libs.tests.robolectricespressointents
         // UI Automator
     androidTestImplementation libs.tests.uiautomator
+    androidTestImplementation libs.tests.uiautomatorrules
     // Lifecycle
 //    implementation libs.lifecycle.extensions
     // LiveData
