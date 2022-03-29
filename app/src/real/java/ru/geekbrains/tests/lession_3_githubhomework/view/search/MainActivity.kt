@@ -14,7 +14,7 @@ import ru.geekbrains.tests.lession_3_githubhomework.presenter.search.PresenterSe
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.search.SearchPresenter
 import ru.geekbrains.tests.lession_3_githubhomework.view.details.DetailsActivity
 
-class MainActivityReal {
+class MainActivity {
     class MainActivity: AppCompatActivity(), ViewSearchContract {
 
         private val adapter = SearchResultAdapter()
@@ -42,24 +42,18 @@ class MainActivityReal {
         }
 
         private fun setQueryListener() {
-            searchEditText.setOnEditorActionListener(
-                TextView.OnEditorActionListener { _, actionId, _ ->
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    val query = searchEditText.text.toString()
-                    if (query.isNotBlank()) {
-                        presenter.searchGitHub(query)
-                        return@OnEditorActionListener true
-                    } else {
-                        Toast.makeText(
-                            this@MainActivity,
-                            getString(R.string.enter_search_word),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        return@OnEditorActionListener false
-                    }
+            toSearchActivityButton.setOnClickListener {
+                val query = searchEditText.text.toString()
+                if (query.isNotBlank()) {
+                    presenter.searchGitHub(query)
+                } else {
+                    Toast.makeText(
+                        this@MainActivity,
+                        getString(R.string.enter_search_word),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-                false
-            })
+            }
         }
 
         override fun displaySearchResults(

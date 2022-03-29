@@ -29,13 +29,13 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
 @Config(sdk = [Build.VERSION_CODES.R])
 class MainActivityTests {
     // Создание сценария для активити
-    private lateinit var scenarioMainActivity: ActivityScenario<MainActivity>
+    private lateinit var scenarioMainActivity: ActivityScenario<MainActivity.MainActivity>
     private lateinit var context: Context
 
     @Before
     fun setup() {
         // launch виртуально стартует MainActivity активити
-        scenarioMainActivity = ActivityScenario.launch(MainActivity::class.java)
+        scenarioMainActivity = ActivityScenario.launch(MainActivity.MainActivity::class.java)
         // Получаем контекст
         context = ApplicationProvider.getApplicationContext()
         // Настройка аннотации "@Mock"

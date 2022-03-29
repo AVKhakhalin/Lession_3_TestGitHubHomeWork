@@ -1,5 +1,6 @@
-package ru.geekbrains.tests.lession_3_githubhomework
+package ru.geekbrains.tests.lession_3_githubhomework.espresso
 
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -8,18 +9,23 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.filters.SdkSuppress
 import junit.framework.TestCase
+import org.hamcrest.Matcher
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivityFake
+import ru.geekbrains.tests.lession_3_githubhomework.R
+import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivity
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -28,15 +34,16 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.MainActivityFake
  */
 //@RunWith(AndroidJUnit4ClassRunner::class)
 @RunWith(AndroidJUnit4::class)
-class MainActivityFakeEspressoTest {
+@SdkSuppress(minSdkVersion = 18)
+class MainActivityRealEspressoTest {
 
     /** Задание переменных */ //region
-    private lateinit var scenario: ActivityScenario<MainActivityFake.MainActivity>
+    private lateinit var scenario: ActivityScenario<MainActivity.MainActivity>
     //endregion
 
     @Before // Установка действия до начала выполнения всех тестов
     fun setup() {
-        scenario = ActivityScenario.launch(MainActivityFake.MainActivity::class.java)
+        scenario = ActivityScenario.launch(MainActivity.MainActivity::class.java)
     }
 
     @Test // Проверка на существование активити
@@ -92,8 +99,9 @@ class MainActivityFakeEspressoTest {
         onView(withId(R.id.searchEditText)).perform(replaceText("algol"),
             closeSoftKeyboard())
         onView(withId(R.id.searchEditText)).perform(pressImeActionButton())
+        onView(isRoot()).perform(delay(2000))
         onView(withId(R.id.totalCountTextView)).
-            check(matches(withText("Number of results: 42")))
+            check(matches(withText("Number of results: 2952")))
     }
 
     @Test // Проверка частичного отображения элемента с id "searchEditText"
@@ -144,6 +152,17 @@ class MainActivityFakeEspressoTest {
     @Test // Проверка отображения корректного текста на элементе с id "toDetailsActivityButton"
     fun activityButton_IsCorrectText() {
         onView(withId(R.id.toDetailsActivityButton)).check(matches(withText("to details")))
+    }
+
+    // Функция для реализации ожидания
+    private fun delay(waitTime: Long): ViewAction? {
+        return object: ViewAction {
+            override fun getConstraints(): Matcher<View> = isRoot()
+            override fun getDescription(): String = "Ожидание в течение $waitTime секунд"
+            override fun perform(uiController: UiController, v: View?) {
+                uiController.loopMainThreadForAtLeast(waitTime)
+            }
+        }
     }
 
     @After // Установка действия после завершения выполнения всех тестов
