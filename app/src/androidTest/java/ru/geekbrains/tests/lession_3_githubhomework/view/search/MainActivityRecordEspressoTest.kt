@@ -19,6 +19,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import ru.geekbrains.tests.lession_3_githubhomework.R
 
+// Сгенерированный автоматически тест урока, адаптированный под макеты имеющихся активити
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class MainActivityRecordEspressoTest {
