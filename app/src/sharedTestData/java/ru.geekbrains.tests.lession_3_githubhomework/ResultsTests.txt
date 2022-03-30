@@ -1,0 +1,313 @@
+Материал к 3 ДЗ урока №6:
+Результаты проведения следующих тестов на версии "real" приложения:
+    UI- и ИНТЕГРАЦИОННЫЕ ТЕСТЫ
+1. "DetailsActivityEspressoTest.kt".
+2. "MainActivityEquivalentShortTest.kt".
+3. "BehaviorTest.kt".
+4. "OpenOtherAppsTest.kt".
+5. "MainActivityRealEspressoTest".
+
+Логи тестов:
+1. Результаты теста "DetailsActivityEspressoTest.kt" на устройстве SM-A105FN, Samsung:
+------------------------------------
+Testing started at 13:37 ...
+Using Cloud Storage Bucket location test-lab-ub23y415i11tq-jf28vazsq3018/as-build_2022-03-30_13:37:33.094_LcoL ...
+Uploading app APK ...
+Uploading test APK ...
+Submitting tests to Firebase Test Lab ...
+Validating APKs ...
+
+You can also view test results, along with other runs against this app, on the web:
+https://console.firebase.google.com/project/lessionstestsgithubhomework/testlab/histories/bh.b80f5e75c1823595/matrices/4704406619861366215?source=android-studio
+
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting attempt 1.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Preparing device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Installing apps.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Retrieving Performance Environment information from the device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Setting up Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash detection.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started Out of memory detection
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Completed Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Tearing down Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Done. Test time = 18 (secs)
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting results processing. Attempt: 1
+Test running failed: No test results
+Finish
+
+Pricing information: https://firebase.google.com/pricing
+------------------------------------
+
+
+2. Результаты теста "MainActivityEquivalentShortTest.kt" на устройстве SM-A105FN, Samsung:
+------------------------------------
+Testing started at 14:33 ...
+Using Cloud Storage Bucket location test-lab-ub23y415i11tq-jf28vazsq3018/as-build_2022-03-30_14:33:31.457_zVbd ...
+Uploading app APK ...
+Uploading test APK ...
+Submitting tests to Firebase Test Lab ...
+Validating APKs ...
+
+You can also view test results, along with other runs against this app, on the web:
+https://console.firebase.google.com/project/lessionstestsgithubhomework/testlab/histories/bh.b80f5e75c1823595/matrices/7980898606533996518?source=android-studio
+
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting attempt 1.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Preparing device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Installing apps.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Retrieving Performance Environment information from the device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Setting up Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash detection.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started Out of memory detection
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Completed Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Tearing down Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	An infrastructure error occurred. Retrying...
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting attempt 2.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Preparing device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Installing apps.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Retrieving Performance Environment information from the device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Setting up Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash detection.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started Out of memory detection
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Completed Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Tearing down Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Done. Test time = 11 (secs)
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting results processing. Attempt: 1
+Test running failed: No test results
+Finish
+
+Pricing information: https://firebase.google.com/pricing
+------------------------------------
+
+
+3. Результаты теста "BehaviorTest.kt" на устройстве SM-A105FN, Samsung:
+------------------------------------
+Testing started at 14:40 ...
+Using Cloud Storage Bucket location test-lab-ub23y415i11tq-jf28vazsq3018/as-build_2022-03-30_14:40:02.517_yThy ...
+Uploading app APK ...
+Uploading test APK ...
+Submitting tests to Firebase Test Lab ...
+Validating APKs ...
+
+You can also view test results, along with other runs against this app, on the web:
+https://console.firebase.google.com/project/lessionstestsgithubhomework/testlab/histories/bh.b80f5e75c1823595/matrices/8923888247611863801?source=android-studio
+
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting attempt 1.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Preparing device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Installing apps.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Retrieving Performance Environment information from the device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Setting up Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash detection.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started Out of memory detection
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Completed Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Tearing down Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Done. Test time = 128 (secs)
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting results processing. Attempt: 1
+Test running failed: No test results
+Finish
+
+Pricing information: https://firebase.google.com/pricing
+------------------------------------
+
+4. Результаты теста "OpenOtherAppsTest.kt" на устройстве SM-A105FN, Samsung:
+------------------------------------
+Testing started at 14:46 ...
+Using Cloud Storage Bucket location test-lab-ub23y415i11tq-jf28vazsq3018/as-build_2022-03-30_14:46:04.187_FSVB ...
+Uploading app APK ...
+Uploading test APK ...
+Submitting tests to Firebase Test Lab ...
+Validating APKs ...
+
+You can also view test results, along with other runs against this app, on the web:
+https://console.firebase.google.com/project/lessionstestsgithubhomework/testlab/histories/bh.b80f5e75c1823595/matrices/5375865665935807732?source=android-studio
+
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting attempt 1.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Preparing device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Installing apps.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Retrieving Performance Environment information from the device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Setting up Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash detection.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started Out of memory detection
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Completed Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Tearing down Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Done. Test time = 33 (secs)
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting results processing. Attempt: 1
+Test running failed: No test results
+Finish
+
+Pricing information: https://firebase.google.com/pricing
+------------------------------------
+
+5. Результаты теста "MainActivityRealEspressoTest.kt" на устройстве SM-A105FN, Samsung:
+------------------------------------
+Testing started at 15:09 ...
+Using Cloud Storage Bucket location test-lab-ub23y415i11tq-jf28vazsq3018/as-build_2022-03-30_15:09:48.049_cumk ...
+Uploading app APK ...
+Uploading test APK ...
+Submitting tests to Firebase Test Lab ...
+Validating APKs ...
+
+You can also view test results, along with other runs against this app, on the web:
+https://console.firebase.google.com/project/lessionstestsgithubhomework/testlab/histories/bh.b80f5e75c1823595/matrices/6607414276024864147?source=android-studio
+
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting attempt 1.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Preparing device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Installing apps.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Retrieving Performance Environment information from the device.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Setting up Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started crash detection.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started Out of memory detection
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Started performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Completed Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped performance monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Tearing down Android test.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped crash monitoring.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Stopped logcat recording.
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Done. Test time = 31 (secs)
+SM-A105FN, Samsung | Android 10.x, API Level 29 (Q) | Russian | Portrait
+	Starting results processing. Attempt: 1
+Test running failed: No test results
+Finish
+
+Pricing information: https://firebase.google.com/pricing
+------------------------------------
+
+
