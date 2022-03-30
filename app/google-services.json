@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "873089169369",
+    "project_id": "lessionstestsgithubhomework",
+    "storage_bucket": "lessionstestsgithubhomework.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873089169369:android:6fe5c8d8d6bf6be2638bc8",
+        "android_client_info": {
+          "package_name": "ru.geekbrains.popular.libraries.less_1_homework.real"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873089169369-mbhu4s45ev01jipteu6t7q3r2mbil7tu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPkNZkTiXtsEbu-G1ZCtA8sLWNOsdYoaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873089169369-mbhu4s45ev01jipteu6t7q3r2mbil7tu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

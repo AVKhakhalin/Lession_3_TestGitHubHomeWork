@@ -17,6 +17,7 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("ru.geekbrains.popular.libraries.less_1_homework.fake", appContext.packageName)
+        assertEquals("ru.geekbrains.popular.libraries.less_1_homework.fake",
+            appContext.packageName)
     }
 }

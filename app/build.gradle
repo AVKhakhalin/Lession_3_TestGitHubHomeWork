@@ -5,6 +5,8 @@ plugins {
     id 'kotlin-kapt'
     // Подключение плагина для удобной парселизации
     id 'kotlin-android-extensions'
+    // Необходимо для подключения Firebase
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -60,6 +62,15 @@ android {
             buildConfigField "String", "TYPE", '"REAL"'
         }
     }
+
+    sourceSets {
+        androidTest {
+            java.srcDirs += "src/sharedTestData/java"
+        }
+        test {
+            java.srcDirs += "src/sharedTestData/java"
+        }
+    }
 }
 
 dependencies {
@@ -76,9 +87,8 @@ dependencies {
     // Test
     testImplementation libs.tests.junit
         // Core
-    androidTestImplementation libs.tests.ext
+    androidTestImplementation libs.tests.ext // Нужно для работы AndroidJUnit4 в инструментальных-тестах
     androidTestImplementation libs.tests.espressocore
-//    implementation fileTree(dir: libs.tests.filetreedir, include: libs.tests.filetreeinclude)
         // Mockito
     testImplementation libs.tests.mockitocore
     testImplementation libs.tests.mockitoinline
@@ -90,11 +100,13 @@ dependencies {
     testImplementation libs.tests.robolectric
     testImplementation libs.tests.robolectriccore
     testImplementation libs.tests.robolectricrunner
+    testImplementation libs.tests.ext // Нужно для работы AndroidJUnit4 в Unit-тестах
     testImplementation libs.tests.robolectrictruth
     testImplementation libs.tests.robolectricespressocore
     testImplementation libs.tests.robolectricespressointents
         // UI Automator
     androidTestImplementation libs.tests.uiautomator
+    androidTestImplementation libs.tests.uiautomatorrules
     // Lifecycle
 //    implementation libs.lifecycle.extensions
     // LiveData
@@ -154,4 +166,6 @@ dependencies {
     // Koin for Tests
 //    testImplementation libs.koin.testsandroidx
     testImplementation libs.koin.testsio
+    // Firebase
+    implementation libs.firebase.firestore
 }

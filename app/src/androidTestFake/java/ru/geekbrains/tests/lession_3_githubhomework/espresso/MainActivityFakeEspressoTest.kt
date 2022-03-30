@@ -1,5 +1,9 @@
 package ru.geekbrains.tests.lession_3_githubhomework.espresso
 
+import HINT_TEXT
+import RESULT_SAMPLE_FAKE_REPOSITORY_TEXT
+import SAMPLE_REPOSITORY_NAME_TEXT
+import TO_DETAILS_TEXT
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -89,22 +93,23 @@ class MainActivityFakeEspressoTest {
 
     @Test // Проверка корректности работы поискового запроса
     fun activitySearch_IsSearchWorking() {
-        onView(withId(R.id.searchEditText)).perform(click())
-        onView(withId(R.id.searchEditText)).perform(replaceText("algol"),
-            closeSoftKeyboard())
-        onView(withId(R.id.searchEditText)).perform(pressImeActionButton())
-        onView(withId(R.id.totalCountTextView)).
-            check(matches(withText("Number of results: 42")))
+        Espresso.onView(withId(R.id.searchEditText)).perform(click())
+        Espresso.onView(withId(R.id.searchEditText))
+            .perform(replaceText(SAMPLE_REPOSITORY_NAME_TEXT))
+        Espresso.onView(withId(R.id.toSearchActivityButton))
+            .perform(click())
+        Espresso.onView(withId(R.id.totalCountTextView)).
+        check(matches(withText(RESULT_SAMPLE_FAKE_REPOSITORY_TEXT)))
     }
 
     @Test // Проверка частичного отображения элемента с id "searchEditText"
     fun activityIsEditText_Displayed() {
-        onView(withId(R.id.searchEditText)).check(matches(isDisplayed()))
+        Espresso.onView(withId(R.id.searchEditText)).check(matches(isDisplayed()))
     }
 
     @Test // Проверка полного отображения элемента с id "searchEditText"
     fun activityIsEditText_CompletelyDisplayed() {
-        onView(withId(R.id.searchEditText)).check(matches(isCompletelyDisplayed()))
+        Espresso.onView(withId(R.id.searchEditText)).check(matches(isCompletelyDisplayed()))
     }
 
     // Проверка свойства видимости элементов с id "progressBar", "searchEditText",
@@ -130,21 +135,20 @@ class MainActivityFakeEspressoTest {
 
     @Test // Проверка отображения корректного текста на элементе с id "toDetailsActivityButton"
     fun activityEditText_IsCorrectText() {
-        onView(withId(R.id.searchEditText)).check(matches(withText("")))
+        Espresso.onView(withId(R.id.searchEditText)).check(matches(withText("")))
     }
 
     // Проверка отображения корректного текста
     // с подсказкой на элементе с id "toDetailsActivityButton"
     @Test
     fun activityEditText_IsCorrectHintText() {
-        onView(withId(R.id.searchEditText))
-            .check(matches(withHint("Enter keyword e.g. android")))
+        Espresso.onView(withId(R.id.searchEditText)).check(matches(withHint(HINT_TEXT)))
     }
 
 
     @Test // Проверка отображения корректного текста на элементе с id "toDetailsActivityButton"
     fun activityButton_IsCorrectText() {
-        onView(withId(R.id.toDetailsActivityButton)).check(matches(withText("to details")))
+        onView(withId(R.id.toDetailsActivityButton)).check(matches(withText(TO_DETAILS_TEXT)))
     }
 
     @After // Установка действия после завершения выполнения всех тестов
