@@ -38,6 +38,7 @@ def rxJavaRxJavaVersion = "3.0.0-RC3"
 def ciceronyVersion = "6.6"
 def moxyVersion = "2.2.2"
 def lifecycleVersion = "2.2.0"
+def firebaseversion = "24.1.0"
 ext {
     libs = [:]
 
@@ -168,4 +169,8 @@ ext {
     lifecycle.runtimektx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     lifecycle.process = "androidx.lifecycle:lifecycle-process:$lifecycleVersion"
     lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    // Firebase
+    firebase = [:]
+    libs.firebase = firebase
+    firebase.firestore = "com.google.firebase:firebase-firestore:$firebaseversion"
 }

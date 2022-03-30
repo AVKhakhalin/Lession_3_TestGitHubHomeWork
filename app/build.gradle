@@ -5,6 +5,8 @@ plugins {
     id 'kotlin-kapt'
     // Подключение плагина для удобной парселизации
     id 'kotlin-android-extensions'
+    // Необходимо для подключения Firebase
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -164,4 +166,6 @@ dependencies {
     // Koin for Tests
 //    testImplementation libs.koin.testsandroidx
     testImplementation libs.koin.testsio
+    // Firebase
+    implementation libs.firebase.firestore
 }
