@@ -52,7 +52,8 @@ internal const val STEPS_INT_VALUE: Int = 5
 internal fun delayTime(waitTime: Long): ViewAction? {
     return object: ViewAction {
         override fun getConstraints(): Matcher<View> = ViewMatchers.isRoot()
-        override fun getDescription(): String = "$WAITING_DURING_TEXT $waitTime $SECOND_TEXT"
+        override fun getDescription(): String =
+            "$WAITING_DURING_TEXT ${waitTime / 1000} $SECOND_TEXT"
         override fun perform(uiController: UiController, v: View?) {
             uiController.loopMainThreadForAtLeast(waitTime)
         }

@@ -107,6 +107,10 @@ dependencies {
         // UI Automator
     androidTestImplementation libs.tests.uiautomator
     androidTestImplementation libs.tests.uiautomatorrules
+        // Fragment
+//    debugImplementation libs.tests.fragment
+        // RecyclerView
+//    debugImplementation libs.tests.recyclerView
     // Lifecycle
 //    implementation libs.lifecycle.extensions
     // LiveData
