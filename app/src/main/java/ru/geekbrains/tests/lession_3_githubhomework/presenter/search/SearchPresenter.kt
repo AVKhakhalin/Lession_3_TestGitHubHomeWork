@@ -3,6 +3,8 @@ package ru.geekbrains.tests.lession_3_githubhomework.presenter.search
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import retrofit2.Response
+import ru.geekbrains.tests.lession_3_githubhomework.Constants.Companion.NULL_RESULT_TEXT
+import ru.geekbrains.tests.lession_3_githubhomework.Constants.Companion.UNSUCCESSFUL_RESULT_TEXT
 import ru.geekbrains.tests.lession_3_githubhomework.model.SearchResponse
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.RepositoryContract
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.SchedulerProvider
@@ -19,12 +21,12 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.ViewSearchContra
  */
 
 internal class SearchPresenter internal constructor(
-    private val repository: RepositoryContract
+    private val repository: RepositoryContract,
+    // В тестах в качестве данного параметра подставляется класс ScheduleProviderStub()
+    private val appSchedulerProvider: SchedulerProvider = SearchSchedulerProvider()
 ): PresenterSearchContract, RepositoryCallback {
-
     /** Задание переменных */ //region
     private var viewContract: ViewSearchContract? = null
-    private val appSchedulerProvider: SchedulerProvider = SearchSchedulerProvider()
     //endregion
 
     override fun onAttach(viewContract: ViewContract) {
@@ -55,12 +57,14 @@ internal class SearchPresenter internal constructor(
                                     totalCount
                                 )
                             } else {
-                                viewContract.displayError("Search results or total count are null")
+                                viewContract
+                                    .displayError(NULL_RESULT_TEXT)
                             }
                         }
 
                         override fun onError(e: Throwable) {
-                            viewContract.displayError(e.message ?: "Response is null or unsuccessful")
+                            viewContract
+                                .displayError(e.message ?: UNSUCCESSFUL_RESULT_TEXT)
                         }
 
                         override fun onComplete() {}
@@ -83,10 +87,10 @@ internal class SearchPresenter internal constructor(
                         totalCount
                     )
                 } else {
-                    viewContract.displayError("Search results or total count are null")
+                    viewContract.displayError(NULL_RESULT_TEXT)
                 }
             } else {
-                viewContract.displayError("Response is null or unsuccessful")
+                viewContract.displayError(UNSUCCESSFUL_RESULT_TEXT)
             }
         }
     }
