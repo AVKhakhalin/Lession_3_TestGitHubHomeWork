@@ -127,8 +127,9 @@ dependencies {
 /*    // Cicerony
     implementation libs.cicerony.runtime */
 //    // RxJava
-//    implementation libs.rxJava.android
-//    implementation libs.rxJava.reactive
+    implementation libs.rxJava.android
+    implementation libs.rxJava.reactive
+    implementation libs.rxJava.adapter
 //    // Glide
 //    implementation libs.glide.runtime
 //    kapt libs.glide.compiler

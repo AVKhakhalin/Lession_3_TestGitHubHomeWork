@@ -2,6 +2,8 @@ package ru.geekbrains.tests.lession_3_githubhomework.view.search
 
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -40,6 +42,7 @@ class MainActivity {
         }
 
         private fun setQueryListener() {
+            // Установка события нажатия на кнопку "Поиск репозиториев"
             toSearchActivityButton.setOnClickListener {
                 val query = searchEditText.text.toString()
                 if (query.isNotBlank()) {
@@ -52,6 +55,24 @@ class MainActivity {
                     ).show()
                 }
             }
+            // Установка события нажатия на поисковый элемент (лупа) на клавиатуре
+            searchEditText.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    val query = searchEditText.text.toString()
+                    if (query.isNotBlank()) {
+                        presenter.searchGitHub(query)
+                        return@OnEditorActionListener true
+                    } else {
+                        Toast.makeText(
+                            this@MainActivity,
+                            getString(R.string.enter_search_word),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@OnEditorActionListener false
+                    }
+                }
+                false
+            })
         }
 
         override fun displaySearchResults(
