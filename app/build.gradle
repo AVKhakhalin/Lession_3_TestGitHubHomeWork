@@ -5,8 +5,6 @@ plugins {
     id 'kotlin-kapt'
     // Подключение плагина для удобной парселизации
     id 'kotlin-android-extensions'
-    // Необходимо для подключения Firebase
-    id 'com.google.gms.google-services'
 }
 
 android {
@@ -48,7 +46,7 @@ android {
         viewBinding true
     }
 
-    // Настроили признаки версий приложения
+    // Настройки признаков версий приложения
     flavorDimensions "default"
     productFlavors {
         fake {
@@ -86,17 +84,18 @@ dependencies {
     implementation libs.design.constrlayout
     // Test
     testImplementation libs.tests.junit
-        // Core
+    // Core
     androidTestImplementation libs.tests.ext // Нужно для работы AndroidJUnit4 в инструментальных-тестах
     androidTestImplementation libs.tests.espressocore
-        // Mockito
+    testImplementation 'androidx.arch.core:core-testing:2.1.0' // Нужно для InstantTaskExecutorRule
+    // Mockito
     testImplementation libs.tests.mockitocore
     testImplementation libs.tests.mockitoinline
     testImplementation (libs.tests.mockitokotlin) {
         exclude group: 'org.jetbrains.kotlin'
         exclude group: 'org.mockito'
     }
-        // Robolectric
+    // Robolectric
     testImplementation libs.tests.robolectric
     testImplementation libs.tests.robolectriccore
     testImplementation libs.tests.robolectricrunner
@@ -104,12 +103,12 @@ dependencies {
     testImplementation libs.tests.robolectrictruth
     testImplementation libs.tests.robolectricespressocore
     testImplementation libs.tests.robolectricespressointents
-        // UI Automator
+    // UI Automator
     androidTestImplementation libs.tests.uiautomator
     androidTestImplementation libs.tests.uiautomatorrules
-        // Fragment
+    // Fragment
 //    debugImplementation libs.tests.fragment
-        // RecyclerView
+    // RecyclerView
 //    debugImplementation libs.tests.recyclerView
     // Lifecycle
 //    implementation libs.lifecycle.extensions
