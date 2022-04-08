@@ -84,6 +84,8 @@ dependencies {
     implementation libs.design.constrlayout
     // Test
     testImplementation libs.tests.junit
+        // Необходимо для тестирования корутин
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3"
     // Core
     androidTestImplementation libs.tests.ext // Нужно для работы AndroidJUnit4 в инструментальных-тестах
     androidTestImplementation libs.tests.espressocore
@@ -142,6 +144,8 @@ dependencies {
 //    implementation libs.retrofit.rxJava2
 ////    implementation libs.retrofit.rxJava3 // одновременно с rxJava2 не включать
 //    implementation libs.retrofit.interceptor
+        // Работа с Retrofit используя Корутины
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
     // Room
 //    implementation libs.room.runtime
 //    kapt libs.room.compiler
