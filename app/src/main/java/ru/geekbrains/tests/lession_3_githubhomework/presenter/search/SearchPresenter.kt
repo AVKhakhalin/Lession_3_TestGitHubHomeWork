@@ -1,8 +1,13 @@
 package ru.geekbrains.tests.lession_3_githubhomework.presenter.search
 
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableObserver
 import retrofit2.Response
+import ru.geekbrains.tests.lession_3_githubhomework.Constants.Companion.NULL_RESULT_TEXT
+import ru.geekbrains.tests.lession_3_githubhomework.Constants.Companion.UNSUCCESSFUL_RESULT_TEXT
 import ru.geekbrains.tests.lession_3_githubhomework.model.SearchResponse
 import ru.geekbrains.tests.lession_3_githubhomework.presenter.RepositoryContract
+import ru.geekbrains.tests.lession_3_githubhomework.presenter.SchedulerProvider
 import ru.geekbrains.tests.lession_3_githubhomework.repository.RepositoryCallback
 import ru.geekbrains.tests.lession_3_githubhomework.view.ViewContract
 import ru.geekbrains.tests.lession_3_githubhomework.view.search.ViewSearchContract
@@ -16,9 +21,10 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.ViewSearchContra
  */
 
 internal class SearchPresenter internal constructor(
-    private val repository: RepositoryContract
+    private val repository: RepositoryContract,
+    // В тестах в качестве данного параметра подставляется класс ScheduleProviderStub()
+    private val appSchedulerProvider: SchedulerProvider = SearchSchedulerProvider()
 ): PresenterSearchContract, RepositoryCallback {
-
     /** Задание переменных */ //region
     private var viewContract: ViewSearchContract? = null
     //endregion
@@ -32,10 +38,40 @@ internal class SearchPresenter internal constructor(
     }
 
     override fun searchGitHub(searchQuery: String) {
+        // Dispose
         viewContract?.let { viewContract ->
-            viewContract.displayLoading(true)
+            val compositeDisposable = CompositeDisposable()
+            compositeDisposable.add(
+                repository.searchGithub(searchQuery)
+                    .subscribeOn(appSchedulerProvider.io())
+                    .observeOn(appSchedulerProvider.ui())
+                    .doOnSubscribe { viewContract.displayLoading(true) }
+                    .doOnTerminate { viewContract.displayLoading(false) }
+                    .subscribeWith(object: DisposableObserver<SearchResponse>() {
+                        override fun onNext(searchResponse: SearchResponse) {
+                            val searchResults = searchResponse.searchResults
+                            val totalCount = searchResponse.totalCount
+                            if (searchResults != null && totalCount != null) {
+                                viewContract.displaySearchResults(
+                                    searchResults,
+                                    totalCount
+                                )
+                            } else {
+                                viewContract
+                                    .displayError(NULL_RESULT_TEXT)
+                            }
+                        }
+
+                        override fun onError(e: Throwable) {
+                            viewContract
+                                .displayError(e.message ?: UNSUCCESSFUL_RESULT_TEXT)
+                        }
+
+                        override fun onComplete() {}
+                    }
+                    )
+            )
         }
-        repository.searchGithub(searchQuery, this)
     }
 
     override fun handleGitHubResponse(response: Response<SearchResponse?>?) {
@@ -51,10 +87,10 @@ internal class SearchPresenter internal constructor(
                         totalCount
                     )
                 } else {
-                    viewContract.displayError("Search results or total count are null")
+                    viewContract.displayError(NULL_RESULT_TEXT)
                 }
             } else {
-                viewContract.displayError("Response is null or unsuccessful")
+                viewContract.displayError(UNSUCCESSFUL_RESULT_TEXT)
             }
         }
     }

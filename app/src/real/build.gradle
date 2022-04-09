@@ -1,0 +1,4 @@
+plugins {
+    // Необходимо для подключения Firebase
+    id 'com.google.gms.google-services'
+}

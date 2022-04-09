@@ -46,6 +46,8 @@ internal const val START_Y_INT_VALUE: Int = 1500
 internal const val END_X_INT_VALUE: Int = 500
 internal const val END_Y_INT_VALUE: Int = 0
 internal const val STEPS_INT_VALUE: Int = 5
+internal const val ERROR_TEXT = "error"
+internal const val NULL_RESULT_TEXT = "Search results or total count are null"
 //endregion
 
 // Функция для реализации ожидания

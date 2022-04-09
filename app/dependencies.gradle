@@ -37,6 +37,7 @@ def picassoVersion = "2.71828"
 //def rxJavaVersion = "3.0.0"
 def rxJavaAndroidVersion = "2.1.1"
 def rxJavaRxJavaVersion = "3.0.0-RC3"
+def rxJavaAdapterVersion = "2.3.0"
 def ciceronyVersion = "6.6"
 def moxyVersion = "2.2.2"
 def lifecycleVersion = "2.2.0"
@@ -155,6 +156,7 @@ ext {
 //    rxJava.reactive = "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
     rxJava.android = "io.reactivex.rxjava2:rxandroid:$rxJavaAndroidVersion"
     rxJava.reactive = "io.reactivex.rxjava3:rxjava:$rxJavaRxJavaVersion"
+    rxJava.adapter = "com.squareup.retrofit2:adapter-rxjava2:$rxJavaAdapterVersion"
     // Cicerony
     cicerony = [:]
     libs.cicerony = cicerony
