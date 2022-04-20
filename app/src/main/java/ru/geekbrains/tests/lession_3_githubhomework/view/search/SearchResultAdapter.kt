@@ -9,7 +9,7 @@ import ru.geekbrains.tests.lession_3_githubhomework.R
 import ru.geekbrains.tests.lession_3_githubhomework.model.SearchResult
 import ru.geekbrains.tests.lession_3_githubhomework.view.search.SearchResultAdapter.SearchResultViewHolder
 
-internal class SearchResultAdapter : RecyclerView.Adapter<SearchResultViewHolder>() {
+internal class SearchResultAdapter: RecyclerView.Adapter<SearchResultViewHolder>() {
 
     private var results: List<SearchResult> = listOf()
 

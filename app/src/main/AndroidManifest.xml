@@ -10,15 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Lession_3_GitHubHomeWork">
-        <activity
-            android:name=".view.search.MainActivity"
-            android:exported="true"> <!--Нужно для устранения ошибки: Manifest merger failed : Apps targeting Android 12 -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        android:theme="@style/Theme.Lession_3_GitHubHomeWork"
+        android:name=".application.GitHubApp">
         <activity android:name=".view.details.DetailsActivity"/>
     </application>
 </manifest>

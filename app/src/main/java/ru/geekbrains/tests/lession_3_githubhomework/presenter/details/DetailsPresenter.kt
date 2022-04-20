@@ -6,6 +6,7 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.details.ViewDetailsCont
 internal class DetailsPresenter internal constructor(
     private var count: Int = 0
 ): PresenterDetailsContract {
+
     /** Задание переменных */ //region
     private var viewContract: ViewDetailsContract? = null
     //endregion

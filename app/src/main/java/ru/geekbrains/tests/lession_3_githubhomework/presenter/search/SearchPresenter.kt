@@ -2,8 +2,8 @@ package ru.geekbrains.tests.lession_3_githubhomework.presenter.search
 
 import retrofit2.Response
 import ru.geekbrains.tests.lession_3_githubhomework.model.SearchResponse
-import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubRepository
-import ru.geekbrains.tests.lession_3_githubhomework.repository.GitHubRepository.GitHubRepositoryCallback
+import ru.geekbrains.tests.lession_3_githubhomework.presenter.RepositoryContract
+import ru.geekbrains.tests.lession_3_githubhomework.repository.RepositoryCallback
 import ru.geekbrains.tests.lession_3_githubhomework.view.ViewContract
 import ru.geekbrains.tests.lession_3_githubhomework.view.search.ViewSearchContract
 
@@ -16,8 +16,9 @@ import ru.geekbrains.tests.lession_3_githubhomework.view.search.ViewSearchContra
  */
 
 internal class SearchPresenter internal constructor(
-    private val repository: GitHubRepository
-): PresenterSearchContract, GitHubRepositoryCallback {
+    private val repository: RepositoryContract
+): PresenterSearchContract, RepositoryCallback {
+
     /** Задание переменных */ //region
     private var viewContract: ViewSearchContract? = null
     //endregion
@@ -40,7 +41,6 @@ internal class SearchPresenter internal constructor(
     override fun handleGitHubResponse(response: Response<SearchResponse?>?) {
         viewContract?.let { viewContract ->
             viewContract.displayLoading(false)
-
             if (response != null && response.isSuccessful) {
                 val searchResponse = response.body()
                 val searchResults = searchResponse?.searchResults

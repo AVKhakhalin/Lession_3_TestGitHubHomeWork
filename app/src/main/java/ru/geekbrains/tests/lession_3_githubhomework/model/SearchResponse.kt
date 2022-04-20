@@ -11,3 +11,4 @@ data class SearchResponse(
     @Expose
     val searchResults: List<SearchResult>?
 )
+
